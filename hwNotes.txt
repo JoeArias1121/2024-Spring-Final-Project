@@ -1,0 +1,8 @@
+commands used =>
+
+// to start project
+
+cd client 
+npm create vite@latest
+npm i
+npm run dev // to constantly update page and run it and ---- npm run build  // to make a production ready version of the app and get dist fold this does do errror checking
