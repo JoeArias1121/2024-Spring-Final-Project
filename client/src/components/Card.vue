@@ -1,14 +1,11 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 
 </script>
 
 <template>
-    <div class="card">
-        <div class="card-image">
-            <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-            </figure>
-        </div>
+    <div class="card is-flex is-flex-direction-row is-justify-content-center">
+        
         <div class="card-content">
             <div class="media">
             <div class="media-left">
@@ -30,9 +27,19 @@
             <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
             </div>
         </div>
+
+
+        <div class="card-image has-background-danger is-flex is-justify-content-center">
+            <figure class="image">
+            <img class="cardImage" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+            </figure>
+        </div>
     </div>
 </template>
 
 <style scoped>
-
+.cardImage {
+    max-height: 13rem;
+    max-width: 13rem;
+}
 </style>

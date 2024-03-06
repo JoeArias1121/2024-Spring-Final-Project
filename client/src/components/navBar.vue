@@ -6,9 +6,10 @@ import { RouterLink } from 'vue-router';
     <div class="">
         <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <a class="navbar-item" href="https://bulma.io">
-                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-                </a>
+                
+                <RouterLink to="/" class="navbar-item">
+                    <img src="../assets/vue.svg" alt="Vue">
+                </RouterLink>
 
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
@@ -19,11 +20,11 @@ import { RouterLink } from 'vue-router';
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                <RouterLink to="/" class="navbar-item">
-                    Home
+                <RouterLink to="/My-Activity" class="navbar-item">
+                    My Activity
                 </RouterLink>
 
-                <RouterLink to="/FriendsActivity" class="navbar-item">
+                <RouterLink to="/Friends-Activity" class="navbar-item">
                     Friends Activity
                 </RouterLink>
 
