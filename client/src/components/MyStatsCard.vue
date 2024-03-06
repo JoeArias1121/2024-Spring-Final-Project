@@ -3,15 +3,15 @@
 </script>
 
 <template>
-    <div>
-        <div>
+    <div class="is-flex is-flex-direction-column">
+        <div class="is-flex is-justify-content-center" >
             <p>Es Hoy Tonto!!</p>
         </div>
-        <div>
+        <div class="is-flex is-justify-content-space-between">
             <h1>Miles Baby</h1>
             <h1>Taking forever</h1>
         </div>
-        <div>
+        <div class="is-flex is-justify-content-space-between">
             <h1>Get Faster</h1>
             <h1>Not enough for the CheeseBurger</h1>
         </div>

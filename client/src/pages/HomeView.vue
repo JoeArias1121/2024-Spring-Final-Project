@@ -9,10 +9,8 @@ const increment = () => {
 </script>
 
 <template>
-    <div class="has-background-info is-flex is-flex-direction-column is-justify-items-center is-align-items-center">
-        <h1 class="title is-1">This is Home  Page!</h1>
-        <button class="button" @click="increment">{{ counter }}</button>
-        <Card v-for=" in counter"/>
+    <div>
+        <h1 class="title is-1">Solo yo weeyyy</h1>
     </div>
 </template>
 
