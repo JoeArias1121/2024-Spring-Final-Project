@@ -13,4 +13,4 @@ import navBar from  "./components/navBar.vue"
 
 <style scoped>
 
-</style>
+</style>./pages/HomeView.vue

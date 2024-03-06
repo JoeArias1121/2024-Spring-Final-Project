@@ -6,3 +6,10 @@ cd client
 npm create vite@latest
 npm i
 npm run dev // to constantly update page and run it and ---- npm run build  // to make a production ready version of the app and get dist fold this does do errror checking
+
+--------------------------------------------
+
+added bulma through npm
+and added it to the project by using import url() in ./assets/main.css
+to add the css file to the project and have it actually apply
+in the main.ts you import the css file

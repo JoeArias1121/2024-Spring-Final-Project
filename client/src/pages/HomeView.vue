@@ -8,7 +8,7 @@ const increment = () => {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container has-background-black">
         <button class="button" @click="increment">{{ counter }}</button>
     </div>
 </template>

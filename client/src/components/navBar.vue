@@ -3,8 +3,8 @@
 </script>
 
 <template>
-    <div class="container">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="">
+        <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="https://bulma.io">
                 <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
@@ -59,6 +59,16 @@
                     <a class="button is-light">
                         Log in
                     </a>
+                    <p class="control">
+                        <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="https://bulma.io" target="_blank" href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=https://bulma.io&amp;via=jgthms">
+                        <span class="icon">
+                            <fa :icon="['fab', 'twitter']"/>
+                        </span>
+                        <span>
+                            Tweet
+                        </span>
+                        </a>
+                    </p>
                     </div>
                 </div>
                 </div>
