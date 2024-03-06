@@ -1,0 +1,19 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "first": "Pendejo",
+            "last": "Gonzales",
+            "workouts" : [
+                {
+                    "exercise": "running",
+                    "duration": 30,
+                    "distance": 2,
+                    "pace": 1,
+                    "calories": 500,
+                    "when": "Last Year"
+                }
+            ]
+        }
+    ]
+}
