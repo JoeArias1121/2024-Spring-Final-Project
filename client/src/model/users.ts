@@ -1,9 +1,9 @@
 import info from '../data/users.json'
 
 export interface  User {
-    id: number;
-    first: string;
-    last: string;
+    id: number,
+    first: string,
+    last: string,
     workouts: Object[]
 }
 

@@ -11,6 +11,52 @@
                     "distance": 2,
                     "pace": 1,
                     "calories": 500,
+                    "when": "Yesterday"
+                },
+                {
+                    "exercise": "swimming",
+                    "duration": 40,
+                    "distance": 2.5,
+                    "pace": 1,
+                    "calories": 1500,
+                    "when": "Last Week"
+                },
+                {
+                    "exercise": "biking",
+                    "duration": 50,
+                    "distance": 20,
+                    "pace": 10,
+                    "calories": 200,
+                    "when": "Last Month"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "first": "Fulano",
+            "last": "Ortiz",
+            "workouts" : [
+                {
+                    "exercise": "biking",
+                    "duration": 60,
+                    "distance": 3,
+                    "pace": 13,
+                    "calories": 700,
+                    "when": "Last Year"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "first": "Payasa",
+            "last": "Fernandez",
+            "workouts" : [
+                {
+                    "exercise": "swimming",
+                    "duration": 40,
+                    "distance": 4,
+                    "pace": 2,
+                    "calories": 1500,
                     "when": "Last Year"
                 }
             ]
