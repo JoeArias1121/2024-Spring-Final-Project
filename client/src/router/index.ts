@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../pages/HomeView.vue'
 import FriendsActivity from '../pages/FriendsActivity.vue'
 import MyActivityView from '../pages/MyActivityView.vue'
+import Users from '../pages/Users.vue'
 
 const routes = [
     {
@@ -13,6 +14,11 @@ const routes = [
         path: '/Friends-Activity',
         name: 'friends-activity',
         component: FriendsActivity
+    },
+    {
+        path: '/Users',
+        name: 'users',
+        component: Users
     },
     {
         path: '/My-Activity',
