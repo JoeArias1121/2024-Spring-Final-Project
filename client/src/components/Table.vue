@@ -2,8 +2,9 @@ import { getUsers } from '../model/users';
 <script setup lang="ts">
 import { ref } from 'vue';
 import { type User, getUsers } from '../model/users'
+import {users} from '../viewModel/users'
+const user = users.value[0];
 
-const users = ref(getUsers())
 </script>
 
 <template>
@@ -23,7 +24,7 @@ const users = ref(getUsers())
     <tr v-for="user in users">
       <td>{{  }} pic</td>
       <td>{{ user.first }}</td>
-      <td>{{ user.last }}</td>
+      <td>{{user.last }}</td>
       <td>{{  }}email</td>
       <td>{{  }}handle</td>
       <td>{{  }}isAdmin</td>

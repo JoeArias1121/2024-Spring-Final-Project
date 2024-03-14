@@ -21,13 +21,13 @@ const props = defineProps<{
                 </figure>
             </div>
             <div class="media-content">
-                <p class="title is-4">{{ user.first }} {{ user.last }}</p>
+                <p class="title is-4">{{ user.first }} {{ props.user.last }}</p>
                 <p class="subtitle is-6">@johnsmith{{  }}</p>
             </div>
             </div>
 
             <div class="content">
-            {{  workout.exercise }}
+            {{  props.workout.exercise }}
             <p>@bulmaio</p>
             <br> 
             {{ workout.when }}

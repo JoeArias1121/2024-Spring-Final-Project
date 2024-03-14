@@ -4,6 +4,9 @@
             "id": 1,
             "first": "Pendejo",
             "last": "Gonzales",
+            "email": "pendejogonzales@gmail.com",
+            "handle": "@yuka123",
+            "admin": true,
             "workouts" : [
                 {
                     "exercise": "running",
@@ -35,6 +38,9 @@
             "id": 2,
             "first": "Fulano",
             "last": "Ortiz",
+            "email": "fulanito@gmail.com",
+            "handle": "@salamipower",
+            "admin": false,
             "workouts" : [
                 {
                     "exercise": "biking",
@@ -43,13 +49,32 @@
                     "pace": 13,
                     "calories": 700,
                     "when": "Last Year"
+                },
+                {
+                    "exercise": "swimming",
+                    "duration": 20,
+                    "distance": 3.5,
+                    "pace": 3,
+                    "calories": 2500,
+                    "when": "Last Week"
+                },
+                {
+                    "exercise": "biking",
+                    "duration": 70,
+                    "distance": 10,
+                    "pace": 0.5,
+                    "calories": 100,
+                    "when": "Last Month"
                 }
             ]
         },
         {
             "id": 3,
             "first": "Payasa",
-            "last": "Fernandez",
+            "last": "Vargas",
+            "email": "payasa@gmail.com",
+            "handle": "@platanopower",
+            "admin": false,
             "workouts" : [
                 {
                     "exercise": "swimming",
@@ -58,6 +83,22 @@
                     "pace": 2,
                     "calories": 1500,
                     "when": "Last Year"
+                },
+                {
+                    "exercise": "running",
+                    "duration": 90,
+                    "distance": 100.5,
+                    "pace": 1,
+                    "calories": 500,
+                    "when": "Last Week"
+                },
+                {
+                    "exercise": "biking",
+                    "duration": 60,
+                    "distance": 10,
+                    "pace": 10,
+                    "calories": 200,
+                    "when": "Last Month"
                 }
             ]
         }

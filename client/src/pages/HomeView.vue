@@ -1,18 +1,23 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import MyStatsCard from '../components/MyStatsCard.vue';
 import { type User, getUsers } from '../model/users'
 import { type Workout } from '../model/workouts';
+import {logged} from '../viewModel/session'
+import {users} from '../viewModel/users'
 
-const users = ref([] as User[]) 
-users.value = getUsers()
-const userId = ref(1)
-const workouts = ref(users.value[userId.value-1].workouts)
+const user = ref(users.value[logged.value.userId])
+const workouts = ref(user.value.workouts)
+
+watch(logged.value, (newlogged) => {
+    user.value = users.value[newlogged.userId]
+    workouts.value = user.value.workouts
+})
 
 </script>
 
 <template>
-    <MyStatsCard v-for="workout in workouts" :key="userId" :workout="workout"/>
+    <MyStatsCard v-for="workout in workouts" :key="user.id" :workout="workout"/>
 </template>
 
 <style lang="scss" scoped>

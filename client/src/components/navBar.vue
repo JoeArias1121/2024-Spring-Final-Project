@@ -1,5 +1,16 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
+import { ref } from 'vue';
+import { logged } from '../viewModel/session'
+import { users } from '../viewModel/users'
+
+const islogged = ref(logged.value.userId-1)
+
+const changeUser = (id: number) => {
+    logged.value.userId = id-1
+    logged.value.loggedIn =true
+}
+
 </script>
 
 <template>
@@ -48,22 +59,23 @@ import { RouterLink } from 'vue-router';
                 <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                    <a class="button is-primary">
+                    <a class="button is-primary" v-if="!logged.loggedIn">
                         <strong>Sign up</strong>
                     </a>
-                    <a class="button is-light">
-                        Log in
+                    <a class="button is-primary" v-else @click="logged.loggedIn=false">
+                        <strong>Sign Out</strong>
                     </a>
-                    <p class="control">
-                        <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="https://bulma.io" target="_blank" href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=https://bulma.io&amp;via=jgthms">
-                        <span class="icon">
-                            <fa :icon="['fab', 'twitter']"/>
-                        </span>
-                        <span>
-                            Tweet
-                        </span>
-                        </a>
-                    </p>
+                    
+                    <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        <strong>Login</strong>
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" v-for="user in users" @click="changeUser(user.id)">{{user.first}}</a>
+                    </div>
+                </div>
+                    
                     </div>
                 </div>
                 </div>
