@@ -5,7 +5,7 @@ import { logged } from '../viewModel/session'
 import { users } from '../viewModel/users'
 
 const islogged = ref(logged.value.userId-1)
-
+const expandBurger = ref(false)
 const changeUser = (id: number) => {
     logged.value.userId = id-1
     logged.value.loggedIn =true
@@ -22,14 +22,14 @@ const changeUser = (id: number) => {
                     <img src="../assets/vue.svg" alt="Vue">
                 </RouterLink>
 
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <a role="button" @click="expandBurger=!expandBurger" :class="expandBurger ? 'is-active': ''" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 </a>
             </div>
 
-            <div id="navbarBasicExample" class="navbar-menu">
+            <div id="navbarBasicExample" :class="expandBurger ? 'is-active': ''" class="navbar-menu">
                 <div class="navbar-start">
                 <RouterLink to="/My-Activity" class="navbar-item">
                     My Activity
@@ -48,7 +48,7 @@ const changeUser = (id: number) => {
                     Admin
                     </a>
 
-                    <div class="navbar-dropdown">
+                    <div class="navbar-dropdown is-right">
                         <RouterLink to="/Users" class="navbar-item">
                             Users
                         </RouterLink>
@@ -58,17 +58,20 @@ const changeUser = (id: number) => {
 
                 <div class="navbar-end">
                 <div class="navbar-item">
+                    <p class="" v-if="logged.loggedIn">
+                        <strong class="has-text-white">{{ users[logged.userId].first }}</strong>
+                    </p>
                     <div class="buttons">
                     <a class="button is-primary" v-if="!logged.loggedIn">
                         <strong>Sign up</strong>
                     </a>
-                    <a class="button is-primary" v-else @click="logged.loggedIn=false">
-                        <strong>Sign Out</strong>
-                    </a>
                     
                     <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
+                    <a class="navbar-link" v-if="!logged.loggedIn">
                         <strong>Login</strong>
+                    </a>
+                    <a class="button is-primary" v-else @click="logged.loggedIn=false">
+                        <strong>Log Out</strong>
                     </a>
 
                     <div class="navbar-dropdown">
@@ -85,5 +88,7 @@ const changeUser = (id: number) => {
 </template>
 
 <style scoped>
-
+ .customWhite {
+    color: white;
+ }
 </style>

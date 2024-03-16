@@ -10,6 +10,7 @@ export interface Workout {
     distance: number,
     pace: number,
     calories: number,
+    message: string,
     when: string
 }
 

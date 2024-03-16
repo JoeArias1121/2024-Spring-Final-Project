@@ -16,6 +16,7 @@
                     "distance": 2,
                     "pace": 1,
                     "calories": 500,
+                    "message": "Estoy corriendo y no me gustas dejame tranquilo",
                     "when": "Yesterday"
                 },
                 {
@@ -26,6 +27,7 @@
                     "distance": 2.5,
                     "pace": 1,
                     "calories": 1500,
+                    "message": "Estoy agondome en este piscina auscilyo por favor",
                     "when": "Last Week"
                 },
                 {
@@ -36,6 +38,7 @@
                     "distance": 20,
                     "pace": 10,
                     "calories": 200,
+                    "message": "Este bici me esta lastimando ya queiro apyarme de esto",
                     "when": "Last Month"
                 }
             ]
@@ -56,6 +59,7 @@
                     "distance": 3,
                     "pace": 13,
                     "calories": 700,
+                    "message": "Este bici me esta lastimando ya queiro apyarme de esto",
                     "when": "Last Year"
                 },
                 {
@@ -66,6 +70,7 @@
                     "distance": 3.5,
                     "pace": 3,
                     "calories": 2500,
+                    "message": "Estoy agondome en este piscina auscilyo por favor",
                     "when": "Last Week"
                 },
                 {
@@ -76,6 +81,7 @@
                     "distance": 10,
                     "pace": 0.5,
                     "calories": 100,
+                    "message": "Este bici me esta lastimando ya queiro apyarme de esto",
                     "when": "Last Month"
                 }
             ]
@@ -96,6 +102,7 @@
                     "distance": 4,
                     "pace": 2,
                     "calories": 1500,
+                    "message": "Estoy agondome en este piscina auscilyo por favor",
                     "when": "Last Year"
                 },
                 {
@@ -106,6 +113,7 @@
                     "distance": 100.5,
                     "pace": 1,
                     "calories": 500,
+                    "message": "Estoy corriendo y no me gustas dejame tranquilo",
                     "when": "Last Week"
                 },
                 {
@@ -116,6 +124,7 @@
                     "distance": 10,
                     "pace": 10,
                     "calories": 200,
+                    "message": "Este bici me esta lastimando ya queiro apyarme de esto",
                     "when": "Last Month"
                 }
             ]

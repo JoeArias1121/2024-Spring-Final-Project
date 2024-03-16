@@ -5,6 +5,9 @@ export interface  User {
     id: number,
     first: string,
     last: string,
+    email: string,
+    handle: string,
+    admin: boolean,
     workouts: Workout[]
 }
 

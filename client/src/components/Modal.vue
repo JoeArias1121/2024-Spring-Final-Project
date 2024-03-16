@@ -3,14 +3,32 @@ import { ref, watch } from 'vue';
 import { type User } from '../model/users';
 import { type Workout } from '../model/workouts';
 import {isOpen} from '../viewModel/users'
+import {addWorkout, getKey} from '../viewModel/users'
+import { logged } from '../viewModel/session'
 /*
 const props = defineProps<{
 }>()*/
 const workout = ref({} as Workout)
 
-watch(workout, () => {
+workout.value.id = logged.value.userId+1
 
+const fillWorkout = () => {
+  workout.value.calories = 0
+  workout.value.distance = 0
+  workout.value.duration = 0
+  workout.value.exercise = "Running"
+  workout.value.key = getKey()
+  workout.value.pace = 0
+  workout.value.when = "Today"
+  workout.value.message = ""
+}
+fillWorkout()
+watch(isOpen, () => {
+  if(isOpen.value){
+    fillWorkout()
+  }
 }, {deep: true})
+
 
 </script>
 
@@ -27,11 +45,18 @@ watch(workout, () => {
           <label class="label">Exercise</label>
           <div class="control">
             <div class="select">
-              <select>
+              <select  v-model="workout.exercise">
                 <option>Running</option>
                 <option>Biking</option>
                 <option>Swimming</option>
               </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Message</label>
+            <div class="control">
+              <input class="input" v-model="workout.message" type="text" placeholder="Type..">
             </div>
           </div>
 
@@ -73,8 +98,8 @@ watch(workout, () => {
 
         </section>
         <footer class="modal-card-foot">
-          <button class="button is-success" @click="isOpen=false">Save changes</button>
-          <button class="button" @click="isOpen=false">Cancel</button>
+          <button class="button is-success" @click="isOpen=false;addWorkout(logged.userId+1,workout)">Save changes</button>
+          <button class="button" @click="isOpen=false;fillWorkout()">Cancel</button>
         </footer>
       </div>
     </div>

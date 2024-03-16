@@ -33,14 +33,13 @@ const emit = defineEmits<{
                 </figure>
             </div>
             <div class="media-content">
-                <p class="title is-4">{{ props.user.first }} {{ props.user.last }}</p>
-                <p class="subtitle is-6">@johnsmith{{  }}</p>
+                <p class="title is-4"> {{ props.user.first }} {{ props.user.last }}</p>
+                <p class="subtitle is-6">{{ user.handle }}</p>
             </div>
             </div>
 
             <div class="content">
-            {{  props.workout.exercise }}
-            <p>@bulmaio</p>
+            <p>{{props.workout.message}}</p>
             <br> 
             {{ workout.when }}
             </div>

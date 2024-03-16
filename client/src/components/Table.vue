@@ -25,9 +25,9 @@ const user = users.value[0];
       <td>{{  }} pic</td>
       <td>{{ user.first }}</td>
       <td>{{user.last }}</td>
-      <td>{{  }}email</td>
-      <td>{{  }}handle</td>
-      <td>{{  }}isAdmin</td>
+      <td>{{  user.email}}</td>
+      <td>{{ user.handle }}</td>
+      <td>{{ user.admin }}</td>
       <td>
         <button class="button">Ed</button>
         <button class="button">Del</button>

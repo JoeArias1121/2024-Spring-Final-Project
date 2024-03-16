@@ -40,7 +40,7 @@ watch(users, () => {
         <button class="button column is-two-thirds mb-3 has-background-info has-text-white is-flex" @click="isOpen=true">Add Workout</button>
             <Modal />
             <Card  v-for="workout in workouts" 
-            :key="workout.key" :user="findUser(workout.id)" :workout="workout"
+            :key="workout.key" :user="users[workout.id-1]" :workout="workout"
             @remove="removeWorkout"/>
     </div>
 </template>
