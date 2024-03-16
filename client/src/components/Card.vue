@@ -1,12 +1,24 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { type User } from '../model/users';
 import { type Workout } from '../model/workouts';
+import { users, removeWorkout } from '../viewModel/users'
 
 const props = defineProps<{
     user: User,
     workout: Workout
 }>()
+
+const emit = defineEmits<{
+    remove: [id: number, workout: Workout]
+}>()
+ const user = ref(props.user)
+ const workout = ref(props.workout)
+
+
+/*watch(user, (newUser) => {
+ user.value = newUser
+},{deep: true})*/
 
 </script>
 
@@ -21,7 +33,7 @@ const props = defineProps<{
                 </figure>
             </div>
             <div class="media-content">
-                <p class="title is-4">{{ user.first }} {{ props.user.last }}</p>
+                <p class="title is-4">{{ props.user.first }} {{ props.user.last }}</p>
                 <p class="subtitle is-6">@johnsmith{{  }}</p>
             </div>
             </div>
@@ -40,7 +52,7 @@ const props = defineProps<{
             <img class="cardImage" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
             </figure>
         </div>
-        <button class="button">x</button>
+        <button class="button" @click="emit('remove',user.id,workout)">x </button>
     </div>
 </template>
 

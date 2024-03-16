@@ -3,6 +3,8 @@ import info from "../data/users.json"
 const users = info.users
 
 export interface Workout {
+    key: number
+    id:  number,
     exercise: string, 
     duration: number,
     distance: number,
