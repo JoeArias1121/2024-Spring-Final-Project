@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import Table from '../components/Table.vue'
 import {users} from '../viewModel/users'
 import {logged} from '../viewModel/session'

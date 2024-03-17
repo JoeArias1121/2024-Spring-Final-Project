@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import info from '../data/users.json'
-import type { User } from '../model/users'
 import { type Workout } from '../model/workouts';
 
 const props = defineProps<{
@@ -24,14 +22,14 @@ const user = users.filter(checkUser)[0]
 
 
     <div class="box pb-1 is-flex-direction-column">
-        <p class="title is-1 is-flex is-justify-content-center">{{ workout.when }}</p>
+        <p class="title is-1 is-flex is-justify-content-center">{{ props.workout.when }}</p>
         <div class="is-flex is-justify-content-space-evenly">
-            <p class="title is-1 has-text-primary-dark">Distance: {{ workout.distance }} mi</p>
-            <p class="title is-1 has-text-primary-dark">Duration: {{ workout.duration }} min</p>
+            <p class="title is-1 has-text-primary-dark">Distance: {{ props.workout.distance }} mi</p>
+            <p class="title is-1 has-text-primary-dark">Duration: {{ props.workout.duration }} min</p>
         </div>
         <div class="is-flex is-justify-content-space-evenly">
-            <p class="title is-1 has-text-primary-dark">Pace: {{ workout.pace }} mph</p>
-            <p class="title is-1 has-text-primary-dark">Calories: {{ workout.calories }} </p>
+            <p class="title is-1 has-text-primary-dark">Pace: {{ props.workout.pace }} mph</p>
+            <p class="title is-1 has-text-primary-dark">Calories: {{ props.workout.calories }} </p>
         </div>
     </div>
 

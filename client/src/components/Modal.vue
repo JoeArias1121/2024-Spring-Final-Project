@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import { type User } from '../model/users';
 import { type Workout } from '../model/workouts';
 import {isOpen} from '../viewModel/users'
 import {addWorkout, getKey} from '../viewModel/users'

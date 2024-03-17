@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import { type User } from '../model/users';
 import { type Workout } from '../model/workouts';
-import { users, removeWorkout } from '../viewModel/users'
 
 const props = defineProps<{
     user: User,

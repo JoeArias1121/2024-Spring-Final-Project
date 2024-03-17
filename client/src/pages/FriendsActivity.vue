@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import Card from '../components/FriendsCard.vue';
-import { type User, getUsers } from '../model/users'
 import { type Workout } from '../model/workouts';
-import {logged} from '../viewModel/session'
-import {users, findUser, isOpen, removeWorkout} from '../viewModel/users'
+import {users, isOpen, removeWorkout} from '../viewModel/users'
 import Modal from '../components/Modal.vue'
 
 const getWorkouts =() => {
@@ -17,13 +15,11 @@ const getWorkouts =() => {
     return  temp
 }
 
-const user = ref(users.value[logged.value.userId])
+
 const workouts = ref(getWorkouts())
 
 
-const updateWorkouts = () => {
-    workouts.value = getWorkouts()
-}
+
 /*watch(logged.value, (newlogged) => {
     user.value = users.value[newlogged.userId]
     workouts.value = user.value.workouts

@@ -4,7 +4,6 @@ import { ref } from 'vue';
 import { logged } from '../viewModel/session'
 import { users } from '../viewModel/users'
 
-const islogged = ref(logged.value.userId-1)
 const expandBurger = ref(false)
 const changeUser = (id: number) => {
     logged.value.userId = id-1

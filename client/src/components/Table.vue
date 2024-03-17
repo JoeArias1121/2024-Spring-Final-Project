@@ -1,9 +1,6 @@
 import { getUsers } from '../model/users';
 <script setup lang="ts">
-import { ref } from 'vue';
-import { type User, getUsers } from '../model/users'
 import {users} from '../viewModel/users'
-const user = users.value[0];
 
 </script>
 

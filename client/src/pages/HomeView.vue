@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import MyStatsCard from '../components/MyStatsCard.vue';
-import { type User, getUsers } from '../model/users'
-import { type Workout } from '../model/workouts';
 import {logged} from '../viewModel/session'
 import {users} from '../viewModel/users'
 
