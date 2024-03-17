@@ -51,7 +51,6 @@ const emit = defineEmits<{
             <img class="cardImage" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
             </figure>
         </div>
-        <button class="button" @click="emit('remove',user.id,workout)">x </button>
     </div>
 </template>
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import Card from '../components/Card.vue';
+import Card from '../components/FriendsCard.vue';
 import { type User, getUsers } from '../model/users'
 import { type Workout } from '../model/workouts';
 import {logged} from '../viewModel/session'

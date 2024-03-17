@@ -17,6 +17,10 @@ export const getKey = (): number => {
     return temp
 }
 
+export const removeUser = (id: number) => {
+    users.value = users.value.filter((user: User) => user.id !== id)
+}
+
 export const addWorkout = (id: number, workout: Workout) => {
     users.value[id-1].workouts.unshift(workout)
 }

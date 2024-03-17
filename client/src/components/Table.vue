@@ -22,7 +22,7 @@ const user = users.value[0];
   </thead>
   <tbody>
     <tr v-for="user in users">
-      <td>{{  }} pic</td>
+      <td>{{  }} </td>
       <td>{{ user.first }}</td>
       <td>{{user.last }}</td>
       <td>{{  user.email}}</td>

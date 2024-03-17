@@ -26,7 +26,7 @@ watch(users, () => {
 <template>
     <div class="is-flex is-flex-direction-column is-justify-items-center is-align-items-center">
         <h1 class="title is-1">My Activity!</h1>
-        <button class="button column is-two-thirds mb-3 has-background-info has-text-white is-flex" @click="isOpen=true">Add Workout {{ logged.userId }}</button>
+        <button class="button column is-two-thirds mb-3 has-background-info has-text-white is-flex" @click="isOpen=true">Add Workout</button>
         <Modal />
         <Card v-for="workout in workouts" :user="user" :workout="workout" @remove="removeWorkout" :key="workout.key"/>
     </div>
