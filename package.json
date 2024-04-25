@@ -1,5 +1,19 @@
 {
+  "name": "2024-spring-final-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js --watch server/"
+  },
   "dependencies": {
+    "express": "^4.19.2",
     "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
   }
 }
