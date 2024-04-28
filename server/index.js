@@ -1,7 +1,10 @@
 const express = require('express');
+
+console.log('Before import controller into index')
+
 const users = require('./controllers/users');
-/* B"H
-*/
+
+console.log('In index after controller import')
 
 const app = express();
 const PORT = 3000;

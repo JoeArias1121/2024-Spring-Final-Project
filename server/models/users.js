@@ -1,20 +1,20 @@
 const data = require('../data/users.json');
 
-
+console.log('In models')
 
 function getAll() {
-    return data.items;
+    return data.users;
 }
 
 function get(id) {
-    return data.items.find(item => item.id == id);
+    return data.users.find(user => user.id == id);
 }
 
 function search(q) {
-    return data.items.filter(item => 
-        new RegExp(q, 'i').test(item.firstName) ||
-        new RegExp(q, 'i').test(item.lastName) ||
-        new RegExp(q, 'i').test(item.email) );
+    return data.users.filter(user => 
+        new RegExp(q, 'i').test(user.first) ||
+        new RegExp(q, 'i').test(user.last) ||
+        new RegExp(q, 'i').test(user.email) );
 }
 
 module.exports = {

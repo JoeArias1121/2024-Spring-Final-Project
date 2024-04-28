@@ -1,6 +1,7 @@
-const users = require('..models/users')
 const express = require('express');
+const users = require('../models/users.js')
 const app = express.Router();
+console.log('In controllers')
 
 app
     .get('/', (req, res) => {
