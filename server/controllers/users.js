@@ -1,18 +1,23 @@
+const users = require('..models/users')
 const express = require('express');
 const app = express.Router();
 
 app
     .get('/', (req, res) => {
-        res.send( [
-            {name: "Joseph", age: 21},
-            {name: "Le", age: 28},
-        ] )
+        const all = users.getAll();
+        res.send(all);
+    })//the search query is not have a use in my code right now
+    .get('/search', (req, res) => {
+
+        const search = req.query.q;
+        const result = users.search(search);
+        res.send(result);
+
     })
-    .get('/test', (req, res) => {
-        res.send({
-            name: "Test User",
-            age: 513
-        })
+    .get('/:id', (req, res) => {
+        const id = req.params.id;
+        const user = users.get(id);
+        res.send(user);
     })
 
 module.exports = app
