@@ -1,3 +1,4 @@
+/** @type { { users: User[] } } */
 const data = require('../data/users.json');
 
 /**
@@ -17,7 +18,7 @@ function getAll() {
 }
 
 /**
- * @param {integer} id
+ * @param {number} id
  * @returns {User}
  * */
 
@@ -66,7 +67,7 @@ function update(user) {
 }
 
 /**
- * @param {integer} id
+ * @param {number} id
  * @returns {boolean}
  * */
 function remove(id) {
