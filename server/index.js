@@ -8,12 +8,17 @@ console.log('In index after controller import')
 
 const app = express();
 const PORT = 3000;
+/*
+app.get('*', (req, res) => {
+  res.send('404! This is an invalid URL.');*/
+app
+  .use(express.json())
 
-app.get('/', (req, res) => {
-  res.send('Hello New Paltz!')
-})
-.use('/api/v1/users', users)
-
+app
+  .get('/', (req, res) => {
+    res.send('Hello New Paltz!')
+  })
+  .use('/api/v1/users', users)
 
 app.listen(PORT, () => {
   console.log(`App listening at http://localhost:${PORT}`)

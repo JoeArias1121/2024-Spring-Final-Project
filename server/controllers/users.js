@@ -19,6 +19,22 @@ app
         const id = req.params.id;
         const user = users.get(id);
         res.send(user);
+    })//////////////////////////////////////////
+    .post('/', (req, res) => {
+        const user = req.body;
+        const result = users.add(user);
+        res.send(result);
+    })
+    .patch('/:id', (req, res) => {
+        const user = req.body;
+        user.id = req.params.id;
+        const result = users.update(user);
+        res.send(result);
+    })
+    .delete('/:id', (req, res) => {
+        const id = req.params.id;
+        const result = users.remove(id);
+        res.send(result);
     })
 
 module.exports = app
