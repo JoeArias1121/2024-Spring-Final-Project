@@ -6,6 +6,10 @@ const users = require('./controllers/users');
 
 console.log('In index after controller import')
 
+/**  
+ * @typedef {import('../client/src/model/transportTypes').DataEnvelope<null> } ErrorDataEnvelope
+ * */
+
 const app = express();
 const PORT = 3000;
 /*
@@ -19,6 +23,18 @@ app
     res.send('Hello New Paltz!')
   })
   .use('/api/v1/users', users)
+
+  // Error handling
+app.use((err, req, res, next) => {
+  console.error(err);
+  /** @type {ErrorDataEnvelope } */
+  const results = { 
+    isSuccess: false,
+    message: err.message || 'Internal Server Error',
+    data: null,
+   };
+  res.status(500).send(results);
+})
 
 app.listen(PORT, () => {
   console.log(`App listening at http://localhost:${PORT}`)

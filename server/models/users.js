@@ -1,57 +1,17 @@
-const fs = require('fs');
+const fs = require('fs/promises');
 
 const fileName = __dirname + '/../data/users.json';
 
-/** @type { { users: User[] } } */
-let data //= require('../data/users.json');
+/** @type { Promise< { users: User[] } > } */
+const dataP = fs
+        .access(fileName, fs.constants.F_OK)
+        .then(() => fs.readFile(fileName, 'utf8'))
+        .then(content => JSON.parse(content))
 
-function isFileAccessible(fileName) {
-    return new Promise((resolve, reject) => {
-        fs.access(fileName, fs.constants.F_OK, (err) => {
-            if (err) {
-                reject(err);
-                return;
-            }
-            resolve();
-        });
-    });
-}
 
-function readFile(fileName) {
-    return new Promise((resolve, reject) => {
-        fs.readFile(fileName, 'utf8', (err, content) => {
-            if (err) {
-                reject(err);
-                return;
-            }
-           resolve(content);
-        });
-});
-}
-
-function writeFile(fileName, content) {
-    return new Promise((resolve, reject) => {
-        fs.writeFile(fileName, content, (err) => {
-            if (err) {
-                reject(err);
-                return;
-            }
-            resolve();
-        });
-    });
-}
-
-isFileAccessible(fileName)
-    .then(() => readFile(fileName))
-    .then(content => {
-        data = JSON.parse(content);
-    })
-    .catch(err => {
-        console.error(err);
-    });
-
-function save() {
-    return writeFile(fileName, JSON.stringify( data , null, 2) );
+async function save() {
+    const data = await dataP
+    return fs.writeFile(fileName, JSON.stringify( data , null, 2) );
 }
 
 /**
@@ -61,10 +21,10 @@ function save() {
 console.log('In models')
 
 /**
- * @returns {User[]}
+ * @returns {Promise<User[]>}
  * */
-function getAll() {
-    //return data.users;
+async function getAll() {
+    const data = await dataP
     return data.users.map(x=> ({
         ...x, first: undefined, last: undefined, email: undefined,
     }))
@@ -72,20 +32,21 @@ function getAll() {
 
 /**
  * @param {number} id
- * @returns {User}
+ * @returns {Promise<User>}
  * */
 
-function get(id) {
+async function get(id) {
+    const data = await dataP;
     return data.users.find(user => user.id == id);
 }
 
 /**
  * @param {string} q
- * @returns {User[]}
+ * @returns {Promise<User[]>}
  * */
 
-function search(q) {
-    return getAll().filter(user => 
+async function search(q) {
+    return (await getAll()).filter(user => 
         new RegExp(q, 'i').test(user.first) ||
         new RegExp(q, 'i').test(user.last) ||
         new RegExp(q, 'i').test(user.email) );
@@ -94,28 +55,35 @@ function search(q) {
 
 /**
  * @param {User} user
- * @returns {User}
+ * @returns {Promise<User>}
  * */
-function add(user) {
+async function add(user) {
+    const data = await dataP;
     user.id = data.users.length + 1;
     data.users.push(user);
-    save().catch(console.error);
+    console.log("2: About to save");
+    
+    await save()
+    console.log("3: Saved");
+
+    console.log("4: About to return user");
     return user;
 }//an issue where only the id
 //is placed in the object and not the full user
 
 /**
  * @param {User} user
- * @returns {User}
+ * @returns {Promise<User>}
  * */
-function update(user) {
+async function update(user) {
+    const data  = await dataP;
     const index = data.users.findIndex(u => u.id == user.id);
     if (index >= 0) {
         data.users[index] = {
             ...data.users[index],
             ...user
         };// spread operator has the last value put in override the older property, essentially  updating it the older object here
-        save().catch(console.error);
+        await save()
         return user;
     }
     return null;
@@ -123,13 +91,14 @@ function update(user) {
 
 /**
  * @param {number} id
-* @returns {User | null}
+* @returns {Promise<User | null>}
  * */
-function remove(id) {
+async function remove(id) {
+    const data =  await dataP;
     const index = data.users.findIndex(u => u.id == id);
     if (index >= 0) {
         const deleted = data.users.splice(index, 1);
-        save().catch(console.error);
+        await save().catch(console.error);
         return deleted[0];
     }
     return null;

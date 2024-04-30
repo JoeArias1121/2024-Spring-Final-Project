@@ -12,78 +12,85 @@ console.log('In controllers')
 
 app
     .get('/', (req, res, next) => {
-        const all = users.getAll();
-        //res.send(all);
-        /** @type { UserDataListEnvelope } */
-        const response = {
-            data: all,
-            totalCount: all.length,
-            isSuccess: true,
-        }
-        res.send(response);
+        users.getAll()
+        .then(all => {
+            /** @type { UserDataListEnvelope } */
+            const response = {
+                data: all,
+                totalCount: all.length,
+                isSuccess: true,
+            }
+            res.send(response);
+        }).catch(next);
     })//the search query is not have a use in my code right now
     .get('/search', (req, res, next) => {
 
         const search = req.query.q;
         if(typeof search !== 'string' ) throw new Error('search is required');
-        const result = users.search(search);
-        //res.send(result);
-        /** @type { UserDataListEnvelope } */
-        const response = {
-            data: result,
-            totalCount: result.length,
-            isSuccess: true,
-        }
-        res.send(response);
+        users.search(search)
+        .then(result => {
+            /** @type { UserDataListEnvelope } */
+            const response = {
+                data: result,
+                totalCount: result.length,
+                isSuccess: true,
+            }
+            res.send(response);
+        }).catch(next);
 
     })
     .get('/:id', (req, res, next) => {
         const id = req.params.id;
         //const user = users.get(+id);
         //res.send(user);
-        /** @type { UserDataEnvelope } */
-        const response = {
-            data: users.get(+id),
-            isSuccess: true,
-        }
-        res.send(response);
+        users.get(+id)
+        .then(result => {
+            /** @type { UserDataEnvelope } */
+            const response = {
+                data: result,
+                isSuccess: true,
+            }
+            res.send(response);
+        }).catch(next);
     })//////////////////////////////////////////
     .post('/', (req, res, next) => {
         const user = req.body;
-        const result = users.add(user);
-        //res.send(result);
-        /** @type { UserDataEnvelope } */
-        const response = {
-            data: result,
-            isSuccess: true,
-        }
-
-        res.send(response);
+        console.log("1: about to add user")
+        users.add(user)
+        .then(result => {
+            console.log("5: Returned from add user");
+            /** @type { UserDataEnvelope } */
+            const response = {
+                data: result,
+                isSuccess: true,
+            }
+            res.send(response);
+        }).catch(next);
     })
     .patch('/:id', (req, res, next) => {
         const user = req.body;
         user.id = req.params.id;
-        const result = users.update(user);
-        //res.send(result);
-        /** @type { UserDataEnvelope } */
-        const response = {
-            data: result,
-            isSuccess: true,
-        }
-
-        res.send(response);
+        users.update(user)
+        .then(result => {
+            /** @type { UserDataEnvelope } */
+            const response = {
+                data: result,
+                isSuccess: true,
+            }
+            res.send(response);
+        }).catch(next);
     })
     .delete('/:id', (req, res, next) => {
         const id = req.params.id;
-        const result = users.remove(+id);
-        //res.send(result);
-        /** @type { UserDataEnvelope } */
-        const response = {
-            data: result,// this needs to be checked
-            isSuccess: true,
-        }
-
-        res.send(response);
+        users.remove(+id)
+        .then(result => {
+            /** @type { UserDataEnvelope } */
+            const response = {
+                data: result,
+                isSuccess: true,
+            }
+            res.send(response);
+        }).catch(next);
     })
 
 module.exports = app
