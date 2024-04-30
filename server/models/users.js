@@ -1,5 +1,35 @@
+const fs = require('fs');
+
+const fileName = __dirname + '/../data/users.json';
+
 /** @type { { users: User[] } } */
-const data = require('../data/users.json');
+let data //= require('../data/users.json');
+
+fs.access(fileName, fs.constants.F_OK, (err) => {
+    if (!err) {
+        fs.readFile(fileName, 'utf8', (err, content) => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            data = JSON.parse(content);
+        });
+    }
+});
+
+function save(callback) {
+    fs.writeFile(fileName, JSON.stringify(data, null, 2), (err) => {
+        if (err) {
+            console.error(err);
+            if (callback) {
+                callback(err);
+            }
+        }
+        if (callback) {
+            callback();
+        }
+    });
+}
 
 /**
  * @typedef {import('../../client/src/model/users').User} User
@@ -46,6 +76,7 @@ function search(q) {
 function add(user) {
     user.id = data.users.length + 1;
     data.users.push(user);
+    save();
     return user;
 }//an issue where only the id
 //is placed in the object and not the full user
@@ -61,6 +92,7 @@ function update(user) {
             ...data.users[index],
             ...user
         };// spread operator has the last value put in override the older property, essentially  updating it the older object here
+        save();
         return user;
     }
     return null;
@@ -74,6 +106,7 @@ function remove(id) {
     const index = data.users.findIndex(u => u.id == id);
     if (index >= 0) {
         const deleted = data.users.splice(index, 1);
+        save();
         return deleted[0];
     }
     return null;
