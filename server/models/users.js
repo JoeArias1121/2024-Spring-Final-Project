@@ -68,15 +68,15 @@ function update(user) {
 
 /**
  * @param {number} id
- * @returns {boolean}
+* @returns {User | null}
  * */
 function remove(id) {
     const index = data.users.findIndex(u => u.id == id);
     if (index >= 0) {
-        data.users.splice(index, 1);
-        return true;
+        const deleted = data.users.splice(index, 1);
+        return deleted[0];
     }
-    return false;
+    return null;
 }
 
 module.exports = {
