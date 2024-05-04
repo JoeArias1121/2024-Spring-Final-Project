@@ -26,7 +26,7 @@ console.log('In models')
 async function getAll() {
     const data = await dataP
     return data.users.map(x=> ({
-        ...x, first: undefined, last: undefined, email: undefined,
+        ...x
     }))
 }
 
@@ -91,14 +91,14 @@ async function update(user) {
 
 /**
  * @param {number} id
-* @returns {Promise<User | null>}
+ * @returns {Promise< User | null >}
  * */
 async function remove(id) {
     const data =  await dataP;
     const index = data.users.findIndex(u => u.id == id);
     if (index >= 0) {
         const deleted = data.users.splice(index, 1);
-        await save().catch(console.error);
+        await save()
         return deleted[0];
     }
     return null;

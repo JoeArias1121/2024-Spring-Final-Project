@@ -1,11 +1,20 @@
 <script setup lang="ts">
 import Table from '../components/Table.vue'
-import {users} from '../viewModel/users'
-import {logged} from '../viewModel/session'
+import { ref } from  'vue';
+//import {getUsers} from '../viewModel/newUsers'
+//import {logged} from '../viewModel/session'
+import { type User, getUsers } from '../model/users'
+
+const users = ref([] as User[])
+getUsers()
+    .then((data) => {
+        users.value = data.data
+    })
+
 </script>
 
 <template>
-    <div class="column if-full" v-if="users[logged.userId].admin == true"> 
+    <div class="column if-full" v-if="users[0].admin == true"> 
         <button class="button has-background-primary has-text-white">+ Add User</button>
         <Table />
     </div>

@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import {ref, watch} from 'vue'
 import navBar from  "./components/navBar.vue"
-import {logged} from './viewModel/session'
+import {refSession} from './viewModel/session'
+
+const user = ref( refSession().user)
+//where v-if was there used to be user there to see if logged in
 </script>
 
 <template>
     <navBar />
-    <div class="container" v-if="logged.loggedIn">
+    <div class="container" v-if="true">
         <RouterView />
     </div>
     <div class="container" v-else>

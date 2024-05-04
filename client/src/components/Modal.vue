@@ -3,13 +3,13 @@ import { ref, watch } from 'vue';
 import { type Workout } from '../model/workouts';
 import {isOpen} from '../viewModel/users'
 import {addWorkout, getKey} from '../viewModel/users'
-import { logged } from '../viewModel/session'
+//import { logged } from '../viewModel/session'
 /*
 const props = defineProps<{
 }>()*/
 const workout = ref({} as Workout)
 
-workout.value.id = logged.value.userId+1
+workout.value.id = 1//logged.value.userId+1
 
 const fillWorkout = () => {
   workout.value.calories = 0
@@ -97,7 +97,7 @@ watch(isOpen, () => {
 
         </section>
         <footer class="modal-card-foot">
-          <button class="button is-success" @click="isOpen=false;addWorkout(logged.userId+1,workout)">Save changes</button>
+          <button class="button is-success" @click="isOpen=false;addWorkout(1,workout)">Save changes</button>
           <button class="button" @click="isOpen=false;fillWorkout()">Cancel</button>
         </footer>
       </div>

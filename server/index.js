@@ -17,6 +17,14 @@ app.get('*', (req, res) => {
   res.send('404! This is an invalid URL.');*/
 app
   .use(express.json())
+  .use((req, res, next) => {
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', '*');
+    res.setHeader('Access-Control-Allow-Headers', '*');
+
+    next();
+  })
 
 app
   .get('/', (req, res) => {

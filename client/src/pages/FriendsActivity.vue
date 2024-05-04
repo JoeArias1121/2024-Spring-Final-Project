@@ -8,10 +8,10 @@ import Modal from '../components/Modal.vue'
 const getWorkouts =() => {
     let temp:Workout[] = []
 
-    users.value.forEach(element => {
+    //users.value.forEach(element => {
         
-        temp = temp.concat(element.workouts)
-    });
+        //temp = temp.concat(element.workouts)
+   // });
     return  temp
 }
 
@@ -35,9 +35,9 @@ watch(users, () => {
         <h1 class="title is-1">Friends!</h1>
         <button class="button column is-two-thirds mb-3 has-background-info has-text-white is-flex" @click="isOpen=true">Add Workout</button>
             <Modal />
-            <Card  v-for="workout in workouts" 
+            <!----<Card  v-for="workout in workouts" 
             :key="workout.key" :user="users[workout.id-1]" :workout="workout"
-            @remove="removeWorkout"/>
+            @remove="removeWorkout"/>-->
     </div>
 </template>
 

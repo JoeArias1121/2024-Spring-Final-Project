@@ -1,22 +1,35 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import Card from '../components/Card.vue';
-import {logged} from '../viewModel/session'
-import {users, isOpen, removeWorkout} from '../viewModel/users'
+import {refSession} from '../viewModel/session'
+//import {users, isOpen, removeWorkout} from '../viewModel/users'
+import { type User, getUsers } from '../model/users'
+import { findUser, removeWorkout, isOpen } from '../viewModel/newUser';
 import Modal from '../components/Modal.vue'
+//import { Workout } from '../model/workouts';
 
 /*const users = ref([] as User[]) 
 users.value = getUsers()
 const user = ref(users.value[logged.value.userId])*/
-const user = ref(users.value[logged.value.userId])
-const workouts = ref(user.value.workouts)
-
-watch(logged.value, (newlogged) => {
-    user.value = users.value[newlogged.userId]
+//const user = ref(users.value[logged.value.userId])
+const session = refSession()
+const user = ref();
+const workouts = ref()
+findUser(1)
+.then((data) =>{
+    user.value = data.data
     workouts.value = user.value.workouts
 })
-watch(users, () => {
-    workouts.value = users.value[logged.value.userId].workouts
+//const removeWorkout = () => {}
+//const isOpen = ref(false)
+//const workouts = user.value.workouts//session.user.workouts
+//used to be logged.value for the first parameter
+//watch(user, (newlogged) => {
+    //user.value = users.value[newlogged.userId]
+    //workouts.value = user.value.workouts
+//})
+watch(user, () => {
+    //workouts.value = users.value[logged.value.userId].workouts
 }, {deep: true})
 
 </script>
