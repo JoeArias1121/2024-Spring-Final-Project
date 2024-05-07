@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { refSession } from '../viewModel/session'
 //import { users } from '../viewModel/users'
 import { findUser, removeWorkout, isOpen } from '../viewModel/newUser';
@@ -8,11 +8,14 @@ import { type User, getUsers } from '../model/users'
 import { useLogin } from '../viewModel/session';
 
 //const user = ref(refSession().user)
-const user = ref();
-findUser(1)
+const session = ref(refSession());
+const user = ref(session.value.user)
+console.log("In navbar")
+console.log(user.value)
+/*findUser(1)
 .then((data) =>{
     user.value = data.data
-}).catch(console.error);
+}).catch(console.error);*/
 
 const users =  ref([] as User[]);
 
@@ -25,10 +28,9 @@ getUsers()
 .catch( console.error );
 
 const expandBurger = ref(false)
-const changeUser = (id: number) => {
-    //user.value.userId = id-1
-    //logged.value.loggedIn =true
-}
+watch(session, () => {
+    user.value = refSession().user
+}, {deep: true})
 
 </script>
 

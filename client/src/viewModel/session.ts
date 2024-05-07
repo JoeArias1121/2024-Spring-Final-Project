@@ -1,27 +1,29 @@
 import type { DataEnvelope } from "../model/transportTypes";
 import type { User } from "@/model/users";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import * as myFetch from "../model/myFetch";
 
-const session  = reactive({
+const session  = ref({
     user: null as User | null
 });
 export function useLogin() {
     const router = useRouter();
     return {
         login(user: User) {
-            session.user = user;
-            router.push("/");
+            session.value.user = user;
+            console.log("in session file")
+            console.log(session.value.user)
+            //1router.push("/");
         },
         logout() {
-            session.user = null;
-           router.push("/");
+            session.value.user = null;
+           //router.push("/");
         }
     };
 }
 
-export const refSession = () => session;
+export const refSession = () => session.value;
 
 export function api<T>(action: string): Promise< DataEnvelope<T> >{
     return myFetch.api<T>(action);
