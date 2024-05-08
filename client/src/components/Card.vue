@@ -15,9 +15,6 @@ const emit = defineEmits<{
  const workout = ref(props.workout)
 
 
-/*watch(user, (newUser) => {
- user.value = newUser
-},{deep: true})*/
 
 </script>
 

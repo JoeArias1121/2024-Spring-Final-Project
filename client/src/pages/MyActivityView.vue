@@ -2,28 +2,19 @@
 import { ref, watch } from 'vue';
 import Card from '../components/Card.vue';
 import {refSession} from '../viewModel/session'
-//import {users, isOpen, removeWorkout} from '../viewModel/users'
-import { type User, updateWorkout, getUsers } from '../model/users'
-import { findUser, isOpen} from '../viewModel/newUser';
+import { type User, updateWorkout } from '../model/users'
+import { isOpen } from '../viewModel/newUser';
 import Modal from '../components/Modal.vue'
 import { type Workout } from '../model/workouts';
 
 
-/*const users = ref([] as User[]) 
-users.value = getUsers()
-const user = ref(users.value[logged.value.userId])*/
-//const user = ref(users.value[logged.value.userId])
 const session = ref()
 session.value = refSession() //get the current logged in user
 console.log("session.user")
 console.log(session.value.user)
 const user = ref<User>();
 const workouts = ref<Workout[]>()
-/*findUser(1)
-.then((data) =>{
-    user.value = data.data
-    workouts.value = user.value.workouts
-})*/
+
 function updateUser() {
     if(session.value.user){
         session.value = refSession()

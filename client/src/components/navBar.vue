@@ -2,8 +2,6 @@
 import { RouterLink } from 'vue-router';
 import { ref, watch } from 'vue';
 import { refSession } from '../viewModel/session'
-//import { users } from '../viewModel/users'
-import { findUser, removeWorkout, isOpen } from '../viewModel/newUser';
 import { type User, getUsers } from '../model/users'
 import { useLogin } from '../viewModel/session';
 
