@@ -11,11 +11,12 @@ console.log('In index after controller import')
  * */
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT ?? 3000;
 /*
 app.get('*', (req, res) => {
   res.send('404! This is an invalid URL.');*/
 app
+  .use(express.static('client/dist'))
   .use(express.json())
   .use((req, res, next) => {
 
