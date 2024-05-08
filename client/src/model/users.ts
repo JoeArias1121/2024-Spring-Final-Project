@@ -1,4 +1,4 @@
-import { api } from "../viewModel/session"
+import { api, updateWorkouts } from '../viewModel/session';
 import { type Workout } from  './workouts';
 
 export interface  User {
@@ -14,4 +14,8 @@ export interface  User {
 export function getUsers() {
     //const data = await api<User[]>("users");
     return api<User[]>("users");
+}
+
+export function updateWorkout(user:User){
+    return updateWorkouts<User>(user);
 }

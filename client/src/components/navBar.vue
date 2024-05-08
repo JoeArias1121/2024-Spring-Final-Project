@@ -27,6 +27,13 @@ getUsers()
 })
 .catch( console.error );
 
+function logOut(){
+    useLogin().logout()
+}
+function logIn(u: User){
+    useLogin().login(u)
+}
+
 const expandBurger = ref(false)
 watch(session, () => {
     user.value = refSession().user
@@ -91,12 +98,12 @@ watch(session, () => {
                     <a class="navbar-link" v-if="!user">
                         <strong>Login</strong>
                     </a>
-                    <a class="button is-primary" v-else @click="useLogin().logout()">
+                    <a class="button is-primary" v-else @click="logOut()">
                         <strong>Log Out</strong>
                     </a>
 
                     <div class="navbar-dropdown">
-                        <a class="navbar-item" v-for="u in users" @click="useLogin().login(u)">{{u.first}}</a>
+                        <a class="navbar-item" v-for="u in users" @click="logIn(u)">{{u.first}}</a>
                     </div>
                     </div>
                     

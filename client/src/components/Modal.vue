@@ -1,15 +1,36 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import { type Workout } from '../model/workouts';
-import {isOpen} from '../viewModel/users'
-import {addWorkout, getKey} from '../viewModel/users'
-//import { logged } from '../viewModel/session'
+import {isOpen} from '../viewModel/newUser'
+import { type User } from '../model/users'
+import { getKey} from '../viewModel/newUser'
+import { refSession } from '../viewModel/session'
 /*
 const props = defineProps<{
 }>()*/
-const workout = ref({} as Workout)
+const props = defineProps<{
+    user: User,
+    id: number,
+}>()
 
-workout.value.id = 1//logged.value.userId+1
+const emit = defineEmits<{
+    (e: 'add', workout: Workout): void//[id: number, workout: Workout]
+}>()
+const session = ref()
+session.value = refSession()
+ const user = ref<User>()
+ user.value = session.value.user
+function add(){
+  user.value?.workouts.unshift(workout.value)
+}
+
+const workout = ref({} as Workout)
+const id = ref()//logged.value.userId+1
+if(user.value){
+  id.value = user.value.id
+  workout.value.id = id.value
+}
+
 
 const fillWorkout = () => {
   workout.value.calories = 0
@@ -97,7 +118,7 @@ watch(isOpen, () => {
 
         </section>
         <footer class="modal-card-foot">
-          <button class="button is-success" @click="isOpen=false;addWorkout(1,workout)">Save changes</button>
+          <button class="button is-success" @click="isOpen=false;add();emit('add',workout)">Save changes</button>
           <button class="button" @click="isOpen=false;fillWorkout()">Cancel</button>
         </footer>
       </div>

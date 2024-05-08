@@ -3,10 +3,11 @@ import { ref, watch } from 'vue';
 import Card from '../components/Card.vue';
 import {refSession} from '../viewModel/session'
 //import {users, isOpen, removeWorkout} from '../viewModel/users'
-import { type User, getUsers } from '../model/users'
-import { findUser, removeWorkout, isOpen } from '../viewModel/newUser';
+import { type User, updateWorkout, getUsers } from '../model/users'
+import { findUser, isOpen} from '../viewModel/newUser';
 import Modal from '../components/Modal.vue'
 import { type Workout } from '../model/workouts';
+
 
 /*const users = ref([] as User[]) 
 users.value = getUsers()
@@ -25,6 +26,7 @@ const workouts = ref<Workout[]>()
 })*/
 function updateUser() {
     if(session.value.user){
+        session.value = refSession()
         user.value = session.value.user
         workouts.value = user.value?.workouts
         console.log("Just updated")
@@ -33,6 +35,29 @@ function updateUser() {
     }
 }
 updateUser()
+function removeWorkout(workout: Workout){
+    if(user.value){
+    user.value.workouts = user.value.workouts.filter((w)=> w != workout);
+ updateWorkout(user.value)
+ .then(()=>{
+    updateUser()
+ })
+}
+}
+function addWorkout(workout: Workout){
+    if(user.value){
+        const temp = workout
+        console.log("Added Workout")
+    console.log(workout)
+    //user.value.workouts.push(temp);
+    console.log(user.value.workouts)
+    //user.value.workouts.unshift(workout);
+    updateWorkout(user.value)
+    .then(()=>{
+        updateUser()
+    });
+}
+}
 //const removeWorkout = () => {}
 //const isOpen = ref(false)
 //const workouts = user.value.workouts//session.user.workouts
@@ -47,7 +72,7 @@ watch(session, () => {
     <div class="is-flex is-flex-direction-column is-justify-items-center is-align-items-center">
         <h1 class="title is-1">My Activity!</h1>
         <button class="button column is-two-thirds mb-3 has-background-info has-text-white is-flex" @click="isOpen=true">Add Workout</button>
-        <Modal />
+        <Modal v-if="user" @add="addWorkout" :user="user" :id='+user.id'/>
         <Card v-if="workouts && user" v-for="workout in workouts" :user="user" :workout="workout" @remove="removeWorkout" :key="workout.key"/>
         <h1 v-else>No Workouts Yet!</h1>
     </div>

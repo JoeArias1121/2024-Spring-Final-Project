@@ -44,7 +44,7 @@ watch(session, () => {
 
 <template>
     <MyStatsCard v-if="user" v-for="workout in workouts"  :workout="workout"/><!--:key="user.id" this was in there but gives dup keys in case if there ever are issues with deleting-->
-    <h1>Let's Start Working Out!</h1>
+    <h1 v-else>Let's Start Working Out!</h1>
 </template>
 
 <style lang="scss" scoped>

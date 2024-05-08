@@ -18,6 +18,9 @@ export function useLogin() {
         },
         logout() {
             session.value.user = null;
+            console.log('logged out ')
+            console.log(session.value.user)
+            console.log("end")
            //router.push("/");
         }
     };
@@ -29,4 +32,7 @@ export function api<T>(action: string): Promise< DataEnvelope<T> >{
     return myFetch.api<T>(action);
 }
 
+export function updateWorkouts<T>(user: User){
+    return myFetch.updateWorkouts<T>(user);
+}
 

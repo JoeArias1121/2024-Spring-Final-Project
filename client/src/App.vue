@@ -4,13 +4,19 @@ import {ref, watch} from 'vue'
 import navBar from  "./components/navBar.vue"
 import {refSession} from './viewModel/session'
 
-const user = ref( refSession().user)
-//where v-if was there used to be user there to see if logged in
+
+const session =  ref()
+session.value = refSession()
+const user = ref()
+user.value = session.value.user
+watch(session, () => {
+    user.value = refSession().user
+}, {deep: true})
 </script>
 
 <template>
     <navBar />
-    <div class="container" v-if="true">
+    <div class="container" v-if="user">
         <RouterView />
     </div>
     <div class="container" v-else>
