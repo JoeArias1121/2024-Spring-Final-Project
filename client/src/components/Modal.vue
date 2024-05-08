@@ -8,13 +8,9 @@ import { refSession } from '../viewModel/session'
 /*
 const props = defineProps<{
 }>()*/
-const props = defineProps<{
-    user: User,
-    id: number,
-}>()
 
 const emit = defineEmits<{
-    (e: 'add', workout: Workout): void//[id: number, workout: Workout]
+    (e: 'add'): void//[id: number, workout: Workout]
 }>()
 const session = ref()
 session.value = refSession()
@@ -118,7 +114,7 @@ watch(isOpen, () => {
 
         </section>
         <footer class="modal-card-foot">
-          <button class="button is-success" @click="isOpen=false;add();emit('add',workout)">Save changes</button>
+          <button class="button is-success" @click="isOpen=false;add();emit('add')">Save changes</button>
           <button class="button" @click="isOpen=false;fillWorkout()">Cancel</button>
         </footer>
       </div>

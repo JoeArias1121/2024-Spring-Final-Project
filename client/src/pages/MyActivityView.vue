@@ -44,24 +44,15 @@ function removeWorkout(workout: Workout){
  })
 }
 }
-function addWorkout(workout: Workout){
+function addWorkout(){
     if(user.value){
-        const temp = workout
-        console.log("Added Workout")
-    console.log(workout)
-    //user.value.workouts.push(temp);
     console.log(user.value.workouts)
-    //user.value.workouts.unshift(workout);
     updateWorkout(user.value)
     .then(()=>{
         updateUser()
     });
 }
 }
-//const removeWorkout = () => {}
-//const isOpen = ref(false)
-//const workouts = user.value.workouts//session.user.workouts
-//used to be logged.value for the first parameter
 watch(session, () => {
     updateUser()
 }, {deep: true})
@@ -72,7 +63,7 @@ watch(session, () => {
     <div class="is-flex is-flex-direction-column is-justify-items-center is-align-items-center">
         <h1 class="title is-1">My Activity!</h1>
         <button class="button column is-two-thirds mb-3 has-background-info has-text-white is-flex" @click="isOpen=true">Add Workout</button>
-        <Modal v-if="user" @add="addWorkout" :user="user" :id='+user.id'/>
+        <Modal v-if="user" @add="addWorkout"/>
         <Card v-if="workouts && user" v-for="workout in workouts" :user="user" :workout="workout" @remove="removeWorkout" :key="workout.key"/>
         <h1 v-else>No Workouts Yet!</h1>
     </div>
