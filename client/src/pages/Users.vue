@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import Table from '../components/Table.vue'
-import { ref } from  'vue';
-import { findUser } from '../viewModel/newUser'
-//import {logged} from '../viewModel/session'
+import { ref, watch } from  'vue';
 import { type User, getUsers } from '../model/users'
+import {refSession} from '../viewModel/session'
+
+const session = ref()
+session.value = refSession()
 
 const users = ref([] as User[])
 getUsers()
@@ -11,10 +13,17 @@ getUsers()
     users.value = data.data
 })
 const user = ref<User>()
-findUser(1)
-.then((data) =>{
-    user.value = data.data
-})
+
+function updateUser() {
+    if(session.value.user){
+        session.value = refSession()
+        user.value = session.value.user
+    }
+}
+updateUser();
+watch(session, () => {
+    updateUser()
+}, {deep: true})
 
 </script>
 

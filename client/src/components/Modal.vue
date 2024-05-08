@@ -5,9 +5,7 @@ import {isOpen} from '../viewModel/newUser'
 import { type User } from '../model/users'
 import { getKey} from '../viewModel/newUser'
 import { refSession } from '../viewModel/session'
-/*
-const props = defineProps<{
-}>()*/
+
 
 const emit = defineEmits<{
     (e: 'add'): void//[id: number, workout: Workout]
