@@ -9,7 +9,7 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-    remove: [id: number, workout: Workout]
+    (e: 'remove', workout: Workout): void//[id: number, workout: Workout]
 }>()
  const user = ref(props.user)
  const workout = ref(props.workout)
@@ -50,7 +50,7 @@ const emit = defineEmits<{
             <img class="cardImage" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
             </figure>
         </div>
-        <button class="button" @click="emit('remove',user.id,workout)">x </button>
+        <button class="button" @click="emit('remove',workout)">x </button>
     </div>
 </template>
 

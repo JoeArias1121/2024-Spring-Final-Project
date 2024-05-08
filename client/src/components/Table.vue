@@ -1,6 +1,16 @@
 import { getUsers } from '../model/users';
 <script setup lang="ts">
-import {users} from '../viewModel/users'
+import { ref } from 'vue';
+import { type User, getUsers } from '../model/users'
+
+const users =  ref([] as User[]);
+getUsers()
+.then( (data)=> {
+    users.value= data.data;
+    console.log('Users')
+    console.log(users.value)
+})
+.catch( console.error );
 
 </script>
 

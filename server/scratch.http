@@ -1,0 +1,29 @@
+###
+GET http://localhost:3000/api/v1/users
+
+###
+GET http://localhost:3000/api/v1/users/3
+
+###
+GET http://localhost:3000/api/v1/users/search?q=pay
+
+###
+DELETE http://localhost:3000/api/v1/users/1
+
+###
+POST http://localhost:3000/api/v1/users
+Content-Type: application/json
+
+{
+    "first": "Moshe",
+    "last": "Plotkin",
+    "email": "plotkinm@newpaltz.edu"
+}
+
+###
+PATCH http://localhost:3000/api/v1/users/31
+Content-Type: application/json
+
+{
+    "firstName": "Prof. Moshe"
+}

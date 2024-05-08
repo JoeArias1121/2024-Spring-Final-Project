@@ -1,133 +1,133 @@
 {
-    "users": [
+  "users": [
+    {
+      "id": "1",
+      "first": "Pendejo",
+      "last": "Gonzales",
+      "email": "pendejogonzales@gmail.edu",
+      "handle": "@yuka123",
+      "admin": true,
+      "workouts": [
         {
-            "id": 1,
-            "first": "Pendejo",
-            "last": "Gonzales",
-            "email": "pendejogonzales@gmail.com",
-            "handle": "@yuka123",
-            "admin": true,
-            "workouts" : [
-                {
-                    "key": 1,
-                    "id": 1,
-                    "exercise": "running",
-                    "duration": 30,
-                    "distance": 2,
-                    "pace": 1,
-                    "calories": 500,
-                    "message": "Estoy corriendo y no me gustas dejame tranquilo",
-                    "when": "Yesterday"
-                },
-                {
-                    "key": 2,
-                    "id": 1,
-                    "exercise": "swimming",
-                    "duration": 40,
-                    "distance": 2.5,
-                    "pace": 1,
-                    "calories": 1500,
-                    "message": "Estoy agondome en este piscina auscilyo por favor",
-                    "when": "Last Week"
-                },
-                {
-                    "key": 3,
-                    "id": 1,
-                    "exercise": "biking",
-                    "duration": 50,
-                    "distance": 20,
-                    "pace": 10,
-                    "calories": 200,
-                    "message": "Este bici me esta lastimando ya queiro apyarme de esto",
-                    "when": "Last Month"
-                }
-            ]
+          "key": 1,
+          "id": 1,
+          "exercise": "running",
+          "duration": 30,
+          "distance": 2,
+          "pace": 1,
+          "calories": 500,
+          "message": "Estoy corriendo y no me gustas dejame tranquilo",
+          "when": "Yesterday"
         },
         {
-            "id": 2,
-            "first": "Fulano",
-            "last": "Ortiz",
-            "email": "fulanito@gmail.com",
-            "handle": "@salamipower",
-            "admin": false,
-            "workouts" : [
-                {
-                    "key": 4,
-                    "id": 2,
-                    "exercise": "biking",
-                    "duration": 60,
-                    "distance": 3,
-                    "pace": 13,
-                    "calories": 700,
-                    "message": "Este bici me esta lastimando ya queiro apyarme de esto",
-                    "when": "Last Year"
-                },
-                {
-                    "key": 5,
-                    "id": 2,
-                    "exercise": "swimming",
-                    "duration": 20,
-                    "distance": 3.5,
-                    "pace": 3,
-                    "calories": 2500,
-                    "message": "Estoy agondome en este piscina auscilyo por favor",
-                    "when": "Last Week"
-                },
-                {
-                    "key": 6,
-                    "id": 2,
-                    "exercise": "biking",
-                    "duration": 70,
-                    "distance": 10,
-                    "pace": 0.5,
-                    "calories": 100,
-                    "message": "Este bici me esta lastimando ya queiro apyarme de esto",
-                    "when": "Last Month"
-                }
-            ]
+          "key": 2,
+          "id": 1,
+          "exercise": "swimming",
+          "duration": 40,
+          "distance": 2.5,
+          "pace": 1,
+          "calories": 1500,
+          "message": "Estoy agondome en este piscina auscilyo por favor",
+          "when": "Last Week"
         },
         {
-            "id": 3,
-            "first": "Payasa",
-            "last": "Vargas",
-            "email": "payasa@gmail.com",
-            "handle": "@platanopower",
-            "admin": false,
-            "workouts" : [
-                {
-                    "key": 7,
-                    "id": 3,
-                    "exercise": "swimming",
-                    "duration": 40,
-                    "distance": 4,
-                    "pace": 2,
-                    "calories": 1500,
-                    "message": "Estoy agondome en este piscina auscilyo por favor",
-                    "when": "Last Year"
-                },
-                {
-                    "key": 8,
-                    "id": 3,
-                    "exercise": "running",
-                    "duration": 90,
-                    "distance": 100.5,
-                    "pace": 1,
-                    "calories": 500,
-                    "message": "Estoy corriendo y no me gustas dejame tranquilo",
-                    "when": "Last Week"
-                },
-                {
-                    "key": 9,
-                    "id": 3,
-                    "exercise": "biking",
-                    "duration": 60,
-                    "distance": 10,
-                    "pace": 10,
-                    "calories": 200,
-                    "message": "Este bici me esta lastimando ya queiro apyarme de esto",
-                    "when": "Last Month"
-                }
-            ]
+          "key": 3,
+          "id": 1,
+          "exercise": "biking",
+          "duration": 50,
+          "distance": 20,
+          "pace": 10,
+          "calories": 200,
+          "message": "Este bici me esta lastimando ya queiro apyarme de esto",
+          "when": "Last Month"
         }
-    ]
+      ]
+    },
+    {
+      "id": 2,
+      "first": "Fulano",
+      "last": "Ortiz",
+      "email": "fulanito@gmail.com",
+      "handle": "@salamipower",
+      "admin": false,
+      "workouts": [
+        {
+          "key": 4,
+          "id": 2,
+          "exercise": "biking",
+          "duration": 60,
+          "distance": 3,
+          "pace": 13,
+          "calories": 700,
+          "message": "Este bici me esta lastimando ya queiro apyarme de esto",
+          "when": "Last Year"
+        },
+        {
+          "key": 5,
+          "id": 2,
+          "exercise": "swimming",
+          "duration": 20,
+          "distance": 3.5,
+          "pace": 3,
+          "calories": 2500,
+          "message": "Estoy agondome en este piscina auscilyo por favor",
+          "when": "Last Week"
+        },
+        {
+          "key": 6,
+          "id": 2,
+          "exercise": "biking",
+          "duration": 70,
+          "distance": 10,
+          "pace": 0.5,
+          "calories": 100,
+          "message": "Este bici me esta lastimando ya queiro apyarme de esto",
+          "when": "Last Month"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "first": "Payasa",
+      "last": "Vargas",
+      "email": "payasa@gmail.com",
+      "handle": "@platanopower",
+      "admin": false,
+      "workouts": [
+        {
+          "key": 7,
+          "id": 3,
+          "exercise": "swimming",
+          "duration": 40,
+          "distance": 4,
+          "pace": 2,
+          "calories": 1500,
+          "message": "Estoy agondome en este piscina auscilyo por favor",
+          "when": "Last Year"
+        },
+        {
+          "key": 8,
+          "id": 3,
+          "exercise": "running",
+          "duration": 90,
+          "distance": 100.5,
+          "pace": 1,
+          "calories": 500,
+          "message": "Estoy corriendo y no me gustas dejame tranquilo",
+          "when": "Last Week"
+        },
+        {
+          "key": 9,
+          "id": 3,
+          "exercise": "biking",
+          "duration": 60,
+          "distance": 10,
+          "pace": 10,
+          "calories": 200,
+          "message": "Este bici me esta lastimando ya queiro apyarme de esto",
+          "when": "Last Month"
+        }
+      ]
+    }
+  ]
 }

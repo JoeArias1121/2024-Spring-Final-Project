@@ -1,4 +1,4 @@
-import info from '../data/users.json'
+import { api, updateWorkouts } from '../viewModel/session';
 import { type Workout } from  './workouts';
 
 export interface  User {
@@ -10,7 +10,12 @@ export interface  User {
     admin: boolean,
     workouts: Workout[]
 }
+//async
+export function getUsers() {
+    //const data = await api<User[]>("users");
+    return api<User[]>("users");
+}
 
-export function getUsers(): User[] {
-    return info.users
+export function updateWorkout(user:User){
+    return updateWorkouts<User>(user);
 }

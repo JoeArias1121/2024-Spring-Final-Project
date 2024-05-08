@@ -21,7 +21,7 @@ const user = users.filter(checkUser)[0]
 <template>
 
 
-    <div class="box pb-1 is-flex-direction-column">
+    <div class="box my-5 is-flex-direction-column">
         <p class="title is-1 is-flex is-justify-content-center">{{ props.workout.when }}</p>
         <div class="is-flex is-justify-content-space-evenly">
             <p class="title is-1 has-text-primary-dark">Distance: {{ props.workout.distance }} mi</p>
