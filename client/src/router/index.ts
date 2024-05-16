@@ -3,6 +3,7 @@ import HomeView from '../pages/HomeView.vue'
 import FriendsActivity from '../pages/FriendsActivity.vue'
 import MyActivityView from '../pages/MyActivityView.vue'
 import Users from '../pages/Users.vue'
+import Statistics from '@/pages/Statistics.vue'
 
 const routes = [
     {
@@ -24,6 +25,11 @@ const routes = [
         path: '/My-Activity',
         name: 'my-activity',
         component: MyActivityView
+    },
+    {
+        path: '/Statistics',
+        name: 'statistics',
+        component: Statistics
     }
 ]
 

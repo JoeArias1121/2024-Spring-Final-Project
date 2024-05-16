@@ -12,6 +12,10 @@ export function findUser(id: number) {
     //which wraps a DataEnvelope
 }
 
+export function searchUser(q: String) {
+    return api<User[]>(`users/search?q=${q}`)
+}
+
 
 export const isOpen = ref(false)
 
